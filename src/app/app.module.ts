@@ -39,4 +39,5 @@ export class AppModule { }
 /*
 https://www.positronx.io/create-angular-7-firebase-crud-app-with-angular-material-7/
 https://angular-templates.io/tutorials/about/angular-crud-with-firebase
+https://codigofacilito.com/articulos/deploy-angular-firebase
 */
