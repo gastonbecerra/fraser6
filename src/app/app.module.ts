@@ -1,18 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
+
+import { OracionesService } from './shared/oraciones';
+import { OracionesComponent } from './oraciones/oraciones.component';
+import { ClasificadosComponent } from './clasificados/clasificados.component';  
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OracionesComponent,
+    ClasificadosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    // CommonModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [
+    OracionesService, 
+    ClasificadosComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

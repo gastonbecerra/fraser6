@@ -1,0 +1,39 @@
+<h1 style="text-align: center;">Registros filtrados</h1>
+
+<!-- <h2 style="text-align: center;">Faltan {{ cuanto }} registros</h2> -->
+<!-- {{ data | json }} -->
+
+<div style="text-align: center;">
+    <button mat-raised-button color="basic" (click)="setFiltro('negativo')">Filtrar negativos</button>
+    <button mat-raised-button color="basic" (click)="setFiltro('positivo')">Filtrar positivos</button>
+    <button mat-raised-button color="basic" (click)="setFiltro('neutral')">Filtrar neutral</button>    
+    <button mat-raised-button color="basic" (click)="setFiltro('descartar')">Filtrar descartados</button>    
+</div>
+
+<div style="width: 100%;">
+    <div *ngFor="let d of data" style="text-align: center; width: 350px; margin: auto;">
+        <p>
+            <strong>
+                {{ d.id }} | {{ d.oracion }}
+            </strong>
+        </p>
+        <p *ngIf="d.estado!=''">
+            Clasificación: 
+            <em style="color: blueviolet;">
+                {{ d.estado }}
+            </em>
+        </p>
+    
+        <p>
+            <button mat-raised-button color="primary" (click)="setEstado(d,'positivo')">Positivo</button>
+            <button mat-raised-button color="warn" (click)="setEstado(d,'negativo')">Negativo</button>
+        </p>
+        <p>        
+            <button mat-raised-button color="basic" (click)="setEstado(d,'')">Borrar clasificación</button>
+            <button mat-raised-button color="basic" (click)="setEstado(d,'descartar')">Descartar</button>
+        </p>
+    
+    </div>
+    
+</div>
+
