@@ -38,7 +38,7 @@ export class OracionesService {
     // });
 
     let data = [];
-    this.db.list('/oraciones', ref => ref.orderByChild('estado').equalTo(estado))
+    this.db.list('/oraciones', ref => ref.orderByChild('estado').limitToFirst(1).equalTo(estado))
     .snapshotChanges()
     .subscribe( oraciones => {
       oraciones.forEach((oracionData: any) => {
